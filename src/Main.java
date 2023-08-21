@@ -1,17 +1,51 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //ArrayList<String> dias = new ArrayList<String>();
+        //dias.add("Lunes");
+        //dias.add("Martes");
+        //dias.add("Miercoles");
+        //dias.add("Jueves");
+        //System.out.println(dias.size());
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        ArrayList<Persona> personas = new ArrayList<Persona>();
+        Persona p = new Persona("Pedro", 20);
+        personas.add(p);
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Scanner entrada = new Scanner(System.in);
+        int op=0;
+        String nom="";
+        int eda=0;
+        double pro=0;
+        do {
+            System.out.println("----------MENU----------");
+            System.out.println("1.-Agregar");
+            System.out.println("2.-Mostrar");
+            System.out.println("3.-Promedio edad");
+            System.out.println("4.-Edad mayor y menor");
+            System.out.println("5.-Salir");
+            System.out.print("op: ");
+            op=entrada.nextInt();
+            switch (op){
+                case 1:
+                    Operacion.ingresar(personas);
+                    break;
+                case 2:
+                    Operacion.mostrar(personas);
+                    break;
+                case 3:
+                    Operacion.promedio(personas);
+                    break;
+                case 4:
+                    Operacion.mayormenor(personas);
+                    break;
+                default:
+            }
+        }while (op !=5);
     }
+
 }
